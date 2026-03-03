@@ -11,7 +11,7 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
   
-  // Controllers
+  // Controllers 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -58,7 +58,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black87),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black87),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
@@ -93,7 +93,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         radius: 60,
                         backgroundColor: Colors.grey,
                         backgroundImage: NetworkImage(
-                          'https://via.placeholder.com/150',
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVrNIrc_GMNFCWvfIVx-5-1jI0YMf-3a6yyg&s',
                         ),
                       ),
                     ),

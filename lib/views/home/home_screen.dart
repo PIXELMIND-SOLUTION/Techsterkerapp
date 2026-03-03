@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:techstecker_app/views/attentence/attentence_screen.dart';
 import 'package:techstecker_app/views/certificate/certificate_screen.dart';
+import 'package:techstecker_app/views/course/course_module_screen.dart';
 import 'package:techstecker_app/views/interviews/interview_screen.dart';
 import 'package:techstecker_app/views/liveclasses/live_class.dart';
 import 'package:techstecker_app/views/payment/payment_overview.dart';
@@ -205,12 +206,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       title: 'Live Classes',
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>LiveClass()));
+                        
                       },
                     ),
                     _buildDrawerItem(
                       icon: Icons.book,
                       title: 'Course Module',
-                      onTap: () => Navigator.pop(context),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CourseModuleScreen()));
+                      },
                     ),
                     _buildDrawerItem(
                       icon: Icons.chat,

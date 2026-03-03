@@ -160,7 +160,7 @@ class ProfileScreen extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: 16),
-                                  _buildProfileCompletion(),
+                                  // _buildProfileCompletion(),
                                 ],
                               );
                             }
@@ -210,7 +210,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(width: 16),
-                                _buildProfileCompletion(),
+                                // _buildProfileCompletion(),
                               ],
                             );
                           },
@@ -362,65 +362,65 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileCompletion() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.2),
-          width: 1,
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text(
-            '60%',
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 4),
-          const Text(
-            'Completion',
-            style: TextStyle(
-              fontSize: 11,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 10),
-          SizedBox(
-            width: 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: LinearProgressIndicator(
-                value: 0.6,
-                backgroundColor: Colors.white.withOpacity(0.3),
-                valueColor: const AlwaysStoppedAnimation<Color>(
-                  Color(0xFF10B981),
-                ),
-                minHeight: 6,
-              ),
-            ),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            '40% more',
-            style: TextStyle(
-              fontSize: 10,
-              color: Colors.white,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildProfileCompletion() {
+  //   return Container(
+  //     padding: const EdgeInsets.all(16),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white.withOpacity(0.15),
+  //       borderRadius: BorderRadius.circular(14),
+  //       border: Border.all(
+  //         color: Colors.white.withOpacity(0.2),
+  //         width: 1,
+  //       ),
+  //     ),
+  //     child: Column(
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: [
+  //         const Text(
+  //           '60%',
+  //           style: TextStyle(
+  //             fontSize: 32,
+  //             fontWeight: FontWeight.w800,
+  //             color: Colors.white,
+  //           ),
+  //         ),
+  //         const SizedBox(height: 4),
+  //         const Text(
+  //           'Completion',
+  //           style: TextStyle(
+  //             fontSize: 11,
+  //             color: Colors.white,
+  //             fontWeight: FontWeight.w500,
+  //           ),
+  //         ),
+  //         const SizedBox(height: 10),
+  //         SizedBox(
+  //           width: 100,
+  //           child: ClipRRect(
+  //             borderRadius: BorderRadius.circular(8),
+  //             child: LinearProgressIndicator(
+  //               value: 0.6,
+  //               backgroundColor: Colors.white.withOpacity(0.3),
+  //               valueColor: const AlwaysStoppedAnimation<Color>(
+  //                 Color(0xFF10B981),
+  //               ),
+  //               minHeight: 6,
+  //             ),
+  //           ),
+  //         ),
+  //         const SizedBox(height: 6),
+  //         const Text(
+  //           '40% more',
+  //           style: TextStyle(
+  //             fontSize: 10,
+  //             color: Colors.white,
+  //             fontWeight: FontWeight.w400,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildLeftColumn(BuildContext context) {
     return Column(
@@ -435,7 +435,7 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildRightColumn() {
     return Column(
       children: [
-        _buildProfileStatsCard(),
+        // _buildProfileStatsCard(),
         const SizedBox(height: 16),
         _buildQuickActionsCard(),
         const SizedBox(height: 16),
@@ -464,10 +464,10 @@ class ProfileScreen extends StatelessWidget {
           _buildInfoField('Department', 'ECE'),
           const SizedBox(height: 12),
           _buildInfoField('Year of Graduation', '2023'),
-          const SizedBox(height: 12),
-          _buildInfoField('Company', 'Not specified'),
-          const SizedBox(height: 12),
-          _buildInfoField('Experience', 'Not specified'),
+          // const SizedBox(height: 12),
+          // _buildInfoField('Company', 'Not specified'),
+          // const SizedBox(height: 12),
+          // _buildInfoField('Experience', 'Not specified'),
         ],
       ),
     );
@@ -520,23 +520,23 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileStatsCard() {
-    return _buildSectionCard(
-      icon: Icons.bar_chart_outlined,
-      title: 'Profile Stats',
-      child: Column(
-        children: [
-          _buildStatItem('Enrolled Courses', '5', const Color(0xFF4F7CF6), 1.0),
-          const SizedBox(height: 12),
-          _buildStatItem('Certificates', '3', const Color(0xFF10B981), 0.6),
-          const SizedBox(height: 12),
-          _buildStatItem('Interviews', '0', const Color(0xFFF59E0B), 0.0),
-          const SizedBox(height: 16),
-          _buildVerificationBadge(),
-        ],
-      ),
-    );
-  }
+  // Widget _buildProfileStatsCard() {
+  //   return _buildSectionCard(
+  //     icon: Icons.bar_chart_outlined,
+  //     title: 'Profile Stats',
+  //     child: Column(
+  //       children: [
+  //         _buildStatItem('Enrolled Courses', '5', const Color(0xFF4F7CF6), 1.0),
+  //         const SizedBox(height: 12),
+  //         _buildStatItem('Certificates', '3', const Color(0xFF10B981), 0.6),
+  //         const SizedBox(height: 12),
+  //         _buildStatItem('Interviews', '0', const Color(0xFFF59E0B), 0.0),
+  //         const SizedBox(height: 16),
+  //         _buildVerificationBadge(),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildQuickActionsCard() {
     return _buildSectionCard(
