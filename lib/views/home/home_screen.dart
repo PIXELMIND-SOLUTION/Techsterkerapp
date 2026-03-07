@@ -4,6 +4,7 @@ import 'package:techstecker_app/views/certificate/certificate_screen.dart';
 import 'package:techstecker_app/views/course/course_module_screen.dart';
 import 'package:techstecker_app/views/interviews/interview_screen.dart';
 import 'package:techstecker_app/views/liveclasses/live_class.dart';
+import 'package:techstecker_app/views/notifications/notification_screen.dart';
 import 'package:techstecker_app/views/payment/payment_overview.dart';
 import 'package:techstecker_app/views/profile/profile_screen.dart';
 
@@ -188,7 +189,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       },
                     ),
 
-                    
                     _buildDrawerItem(
                       icon: Icons.help_outline,
                       title: 'Interviews',
@@ -205,15 +205,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       icon: Icons.videocam,
                       title: 'Live Classes',
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LiveClass()));
-                        
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LiveClass()),
+                        );
                       },
                     ),
                     _buildDrawerItem(
                       icon: Icons.book,
                       title: 'Course Module',
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CourseModuleScreen()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CourseModuleScreen(),
+                          ),
+                        );
                       },
                     ),
                     _buildDrawerItem(
@@ -234,8 +241,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       },
                     ),
 
-
-                     _buildDrawerItem(
+                    _buildDrawerItem(
                       icon: Icons.payment,
                       title: 'Payment Overview',
                       onTap: () {
@@ -248,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       },
                     ),
 
-                     _buildDrawerItem(
+                    _buildDrawerItem(
                       icon: Icons.check_circle_outline,
                       title: 'Attentence',
                       onTap: () {
@@ -336,25 +342,33 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(width: 12),
-          Container(
-            padding: const EdgeInsets.all(3),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFF7C3AED), Color(0xFFA855F7)],
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
+            },
             child: Container(
-              width: 44,
-              height: 44,
+              padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF7C3AED), Color(0xFFA855F7)],
+                ),
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: const Icon(
-                Icons.person,
-                color: Color(0xFF7C3AED),
-                size: 24,
+              child: Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: const Icon(
+                  Icons.person,
+                  color: Color(0xFF7C3AED),
+                  size: 24,
+                ),
               ),
             ),
           ),
@@ -383,23 +397,28 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(width: 8),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Icon(
-              Icons.notifications_outlined,
-              color: Colors.grey[700],
-              size: 22,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Icon(
+                Icons.notifications_outlined,
+                color: Colors.grey[700],
+                size: 22,
+              ),
             ),
           ),
         ],

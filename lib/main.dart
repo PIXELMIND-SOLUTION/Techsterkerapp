@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:techstecker_app/provider/auth/auth_provider.dart';
 import 'package:techstecker_app/provider/navbar/navbar_provider.dart';
 import 'package:techstecker_app/views/splash/splash_screen.dart';
 
@@ -15,16 +16,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => BottomNavbarProvider()),
-        // Add more providers here as needed
-        // ChangeNotifierProvider(create: (_) => AuthProvider()),
-        // ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
       ],
       child: MaterialApp(
         title: 'TECHSTERKER',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF8B1538),
-          ),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF8B1538)),
           useMaterial3: true,
           appBarTheme: const AppBarTheme(
             backgroundColor: Color(0xFF8B1538),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:techstecker_app/helper/shared_preference.dart';
 import 'dart:async';
-
 import 'package:techstecker_app/views/auth/login_screen.dart';
+import 'package:techstecker_app/views/navbar/navbar_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -73,25 +74,37 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Start animations
     _logoController.forward();
-    
+
     Future.delayed(const Duration(milliseconds: 500), () {
       if (mounted) {
         _fadeController.forward();
       }
     });
 
-    // Navigate to next screen after delay
-    _navigateToHome();
+    // Check login and navigate
+    _checkLoginAndNavigate();
   }
 
-  _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3));
-    if (mounted) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
-    }
+  Future<void> _checkLoginAndNavigate() async {
+    // Run splash delay and login check in parallel
+    await Future.wait([
+      Future.delayed(const Duration(seconds: 3)),
+      Future.value(), // placeholder
+    ]);
+
+    if (!mounted) return;
+
+    final loggedIn = await SharedPreferencesHelper.isLoggedIn();
+
+    if (!mounted) return;
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            loggedIn ? const NavbarScreen() : const LoginScreen(),
+      ),
+    );
   }
 
   @override
@@ -106,14 +119,14 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color(0xFF6366F1), // Indigo
-              const Color(0xFF8B5CF6), // Purple
-              const Color(0xFFEC4899), // Pink
+              Color(0xFF6366F1), // Indigo
+              Color(0xFF8B5CF6), // Purple
+              Color(0xFFEC4899), // Pink
             ],
           ),
         ),
@@ -204,7 +217,7 @@ class _SplashScreenState extends State<SplashScreen>
 
                   const SizedBox(height: 40),
 
-                  // Animated App Name (customize this)
+                  // Animated App Name
                   FadeTransition(
                     opacity: _fadeAnimation,
                     child: Column(
